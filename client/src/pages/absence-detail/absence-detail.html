@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Annonce d'absence</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form [formGroup]="absence" (ngSubmit)="saveAbsence()">
+        <ion-item>
+            <ion-label color="primary" stacked>Raison de l'absence*</ion-label>
+            <ion-textarea formControlName="reason"></ion-textarea>
+        </ion-item>
+        <ion-item no-lines>
+            <button ion-button type="submit" [disabled]="!absence.valid">Envoyer</button>
+        </ion-item>
+    </form>
+</ion-content>

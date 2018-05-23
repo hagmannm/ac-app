@@ -17,8 +17,8 @@ import {EventDetailPage} from "../event-detail/event-detail";
 export class EventListPage {
 
   events: Array<any> = [
-    { date: 'jeudi 25.08.2018', time: '20:00', desc: 'Répétition', location: 'HEP' },
-    { date: 'jeudi 01.09.2018', time: '19:00', desc: 'Partielle'},
+    { date: '01.06.2018', time: '20:00', desc: 'Répétition', location: 'HEP' },
+    { date: '08.06.2018', time: '19:00', desc: 'Partielle'},
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

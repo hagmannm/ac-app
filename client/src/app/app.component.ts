@@ -11,9 +11,10 @@ import {EventListPage} from "../pages/event-list/event-list";
   templateUrl: 'app.html'
 })
 export class MyApp {
+
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = EventListPage;
 
   pages: Array<{title: string, component: any}>;
 

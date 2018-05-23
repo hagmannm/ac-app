@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AbsenceDetailPage } from '../absence-detail/absence-detail';
 
 /**
  * Generated class for the EventDetailPage page.
@@ -10,19 +11,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-event-detail',
-  templateUrl: 'event-detail.html',
+    selector: 'page-event-detail',
+    templateUrl: 'event-detail.html',
 })
 export class EventDetailPage {
 
-  private event: any;
+    private event: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.event = navParams.get('event');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.event = navParams.get('event');
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventDetailPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad EventDetailPage');
+    }
 
+    newAbsence() {
+        this.navCtrl.push(AbsenceDetailPage, {
+            event: this.event
+        });
+    }
+
+    newDelay() {
+    }
 }
