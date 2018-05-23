@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
@@ -19,7 +19,7 @@ export class AbsenceDetailPage {
     private event: any;
     private absence: FormGroup;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private toastCtrl: ToastController) {
         this.absence = this.formBuilder.group({
             reason: ['', Validators.required]
         });
@@ -27,13 +27,25 @@ export class AbsenceDetailPage {
 
     saveAbsence() {
 
-        // TODO save absence, give feedback
+        // TODO save absence
+
+        this.presentToast("Annonce d'absence envoyée avec succès.")
 
         this.navCtrl.pop();
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad AbsenceDetailPage');
+    }
+
+    private presentToast(message: string) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present();
     }
 
 }
