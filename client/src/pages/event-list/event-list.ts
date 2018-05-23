@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {EventDetailPage} from "../event-detail/event-detail";
 
 /**
  * Generated class for the EventListPage page.
@@ -16,8 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class EventListPage {
 
   events: Array<any> = [
-    { date: 'jeudi 25.08.2018', time: '20:00'},
-    { date: 'jeudi 01.09.2018', time: '19:00'},
+    { date: 'jeudi 25.08.2018', time: '20:00', desc: 'Répétition', location: 'HEP' },
+    { date: 'jeudi 01.09.2018', time: '19:00', desc: 'Partielle'},
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -27,4 +28,9 @@ export class EventListPage {
     console.log('ionViewDidLoad EventListPage');
   }
 
+  eventTapped(event, evnt) {
+    this.navCtrl.push(EventDetailPage, {
+      event: evnt
+    });
+  }
 }

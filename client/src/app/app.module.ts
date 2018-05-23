@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {EventListPageModule} from "../pages/event-list/event-list.module";
+import {EventDetailPageModule} from "../pages/event-detail/event-detail.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {EventListPageModule} from "../pages/event-list/event-list.module";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     EventListPageModule,
+    EventDetailPageModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
