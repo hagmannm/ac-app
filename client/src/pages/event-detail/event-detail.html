@@ -9,18 +9,17 @@
 
 <ion-content>
     <ion-item>
-        <strong>Description: </strong> {{ event.desc }}<br>
         <strong>Date: </strong> {{ event.date }}<br>
+        <strong>Description: </strong> {{ event.desc }}<br>
         <strong>Heure: </strong> {{ event.time }}<br>
-        <strong>Lieu: </strong> {{ event.location }}
-    </ion-item>
-    <ion-item>
+        <strong>Lieu: </strong> {{ event.location }}<br>
+        <br>
         <strong>Participation: </strong> présent<br>
     </ion-item>
     <button ion-item (click)="newAbsence()">
-        Annoncer une absence
+        Annoncer mon absence
     </button>
     <button ion-item (click)="newDelay()">
-        Annoncer un retard
+        Annoncer mon retard
     </button>
 </ion-content>
