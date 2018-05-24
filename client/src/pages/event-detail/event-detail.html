@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Détail de l'événement</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item>
+        <strong>Description: </strong> {{ event.desc }}<br>
+        <strong>Date: </strong> {{ event.date }}<br>
+        <strong>Heure: </strong> {{ event.time }}<br>
+        <strong>Lieu: </strong> {{ event.location }}
+    </ion-item>
+    <ion-item>
+        <strong>Participation: </strong> présent<br>
+    </ion-item>
+    <button ion-item (click)="newAbsence()">
+        Annoncer une absence
+    </button>
+    <button ion-item (click)="newDelay()">
+        Annoncer un retard
+    </button>
+</ion-content>
