@@ -4,16 +4,16 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <form [formGroup]="absence" (ngSubmit)="saveAbsence()">
+    <form [formGroup]="absence" (ngSubmit)="saveAbsence(reason)">
       <ion-item>
-        <ion-label color="primary" stacked>Je suis absent(e) le TODO</ion-label>
+        <ion-label color="primary" stacked>Je suis absent(e) le {{this.event.date | date:'EEEE dd.MM.yyyy'}}</ion-label>
       </ion-item>
       <ion-item>
             <ion-label color="primary" stacked>Raison de l'absence*</ion-label>
             <ion-textarea formControlName="reason"></ion-textarea>
-        </ion-item>
-        <ion-item no-lines>
+      </ion-item>
+      <ion-item no-lines>
             <button ion-button type="submit" [disabled]="!absence.valid">Envoyer</button>
-        </ion-item>
+      </ion-item>
     </form>
 </ion-content>

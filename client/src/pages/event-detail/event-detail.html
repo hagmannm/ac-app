@@ -9,17 +9,20 @@
 
 <ion-content>
     <ion-item>
-        <strong>Date: </strong> {{ event.date }}<br>
-        <strong>Description: </strong> {{ event.desc }}<br>
-        <strong>Heure: </strong> {{ event.time }}<br>
+        <strong>Date: </strong> {{ event.date | date:'EEEE dd.MM.yyyy'}}<br>
+        <strong>Description: </strong> {{ event.description }}<br>
+        <strong>Heure: </strong> {{ event.startTime }} - {{ event.endTime }}<br>
         <strong>Lieu: </strong> {{ event.location }}<br>
         <br>
-        <strong>Participation: </strong> présent<br>
+        <strong>Participation: </strong> {{ event.singers.get(user.id).state }}<br>
     </ion-item>
-    <button ion-item (click)="newAbsence()">
+    <button *ngIf="!isAbsent()" ion-item (click)="newAbsence()">
         Annoncer mon absence
     </button>
-    <button ion-item (click)="newDelay()">
+    <button *ngIf="!isDelayed()" ion-item (click)="newDelay()">
         Annoncer mon retard
+    </button>
+    <button *ngIf="!isPresent()" ion-item (click)="newPresence()">
+        Annoncer ma présence
     </button>
 </ion-content>

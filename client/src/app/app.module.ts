@@ -11,6 +11,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { EventListPageModule } from "../pages/event-list/event-list.module";
 import { EventDetailPageModule } from "../pages/event-detail/event-detail.module";
 import { AbsenceDetailPageModule } from '../pages/absence-detail/absence-detail.module';
+import { PresenceDetailPageModule } from "../pages/presence-detail/presence-detail.module";
+import { DelayDetailPageModule } from "../pages/delay-detail/delay-detail.module";
 
 @NgModule({
     declarations: [
@@ -24,6 +26,8 @@ import { AbsenceDetailPageModule } from '../pages/absence-detail/absence-detail.
         EventListPageModule,
         EventDetailPageModule,
         AbsenceDetailPageModule,
+        PresenceDetailPageModule,
+        DelayDetailPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Event} from "../../app/events/event.model";
+import {User} from "../../app/users/user.model";
+import {Participation, ParticipationState} from "../../app/participations/participation.model";
 
 /**
  * Generated class for the AbsenceDetailPage page.
@@ -16,18 +19,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AbsenceDetailPage {
 
-    private event: any;
+    private event: Event;
+    private user : User;
     private absence: FormGroup;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private toastCtrl: ToastController) {
         this.absence = this.formBuilder.group({
             reason: ['', Validators.required]
         });
+        this.event = navParams.get('event');
+        this.user = navParams.get('user');
     }
 
-    saveAbsence() {
-
-        // TODO save absence
+    saveAbsence(comment: string) {
+        let participation = new Participation(ParticipationState.Absent, comment);
+        // save absence
+        if (this.event.singers.has(this.user.id)) {
+          this.event.singers.set(this.user.id, participation);
+        }
 
         this.presentToast("Annonce d'absence envoyée avec succès.")
 
