@@ -6,6 +6,7 @@ import {User} from "../../app/users/user.model";
 import {ParticipationState} from "../../app/participations/participation.model";
 import {DelayDetailPage} from "../delay-detail/delay-detail";
 import {PresenceDetailPage} from "../presence-detail/presence-detail";
+import {OverviewDetailPage} from "../overview-detail/overview-detail";
 
 /**
  * Generated class for the EventDetailPage page.
@@ -51,6 +52,13 @@ export class EventDetailPage {
       this.navCtrl.push(PresenceDetailPage, {
         event: this.event,
         user: this.user
+      });
+    }
+
+    overviewAllParticipations() {
+      this.navCtrl.push(OverviewDetailPage, {
+        event: this.event,
+        users: this.users
       });
     }
 

@@ -13,6 +13,7 @@ import { EventDetailPageModule } from "../pages/event-detail/event-detail.module
 import { AbsenceDetailPageModule } from '../pages/absence-detail/absence-detail.module';
 import { PresenceDetailPageModule } from "../pages/presence-detail/presence-detail.module";
 import { DelayDetailPageModule } from "../pages/delay-detail/delay-detail.module";
+import { OverviewDetailPageModule } from "../pages/overview-detail/overview-detail.module";
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { DelayDetailPageModule } from "../pages/delay-detail/delay-detail.module
         EventDetailPageModule,
         AbsenceDetailPageModule,
         PresenceDetailPageModule,
-        DelayDetailPageModule
+        DelayDetailPageModule,
+        OverviewDetailPageModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [

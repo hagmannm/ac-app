@@ -20,13 +20,30 @@ import {Participation, ParticipationState} from "../../app/participations/partic
 export class EventListPage {
 
   private user = new User("1","Bianca", "Castafiore", Registry.Soprano);
+  private user2 = new User("2", "Lucky", "Luke", Registry.Basso);
+  private user3 = new User("3", "Capitaine", "Haddock", Registry.Basso);
+  private user4 = new User("4", "Cat", "Woman", Registry.Alto);
+
+  users = new Map<string, User> ([
+    [this.user.id, this.user],
+    [this.user2.id, this.user2],
+    [this.user3.id, this.user3],
+    [this.user4.id, this.user4]
+  ]);
+
   participation = new Participation(ParticipationState.Present, null);
   usersMap1 = new Map<string, Participation>([
-    [this.user.id, this.participation]
+    [this.user.id, this.participation],
+    [this.user2.id, this.participation],
+    [this.user3.id, this.participation],
+    [this.user4.id, this.participation],
     ]
   )
   usersMap2 = new Map<string, Participation>([
-      [this.user.id, this.participation]
+    [this.user.id, this.participation],
+    [this.user2.id, this.participation],
+    [this.user3.id, this.participation],
+    [this.user4.id, this.participation],
     ]
   )
   event1 = new Event(new Date(2018,7,23), "Répétition", "Maison de Justice",  "20:00",  "22:15", this.usersMap1);
@@ -46,7 +63,8 @@ export class EventListPage {
   eventTapped(event, evnt) {
     this.navCtrl.push(EventDetailPage, {
       event: evnt,
-      user: this.user
+      user: this.user,
+      users: this.users
     });
   }
 
