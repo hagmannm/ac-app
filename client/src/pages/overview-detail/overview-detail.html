@@ -1,0 +1,82 @@
+<!--
+  Generated template for the OverviewDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Aperçu de l'effectif</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h4>Effectif le {{ this.event.date | date: 'EEEE dd.MM.yyyy'}}</h4>
+  <ion-item>
+    <strong>Soprani</strong>
+    <br>Présentes: {{ nbOfPresentSoprani }}
+    <br>Excusées:
+    <ion-list>
+      <ion-item *ngFor="let singer of absentSoprani">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+    En retard:
+    <ion-list>
+      <ion-item *ngFor="let singer of delayedSoprani">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <strong>Alti</strong>
+    <br>Présentes: {{ nbOfPresentAlti }}
+    <br>Excusées:
+    <ion-list>
+      <ion-item *ngFor="let singer of absentAlti">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+    En retard:
+    <ion-list>
+      <ion-item *ngFor="let singer of delayedAlti">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <strong>Ténors</strong>
+    <br>Présents: {{ nbOfPresentTenors }}
+    <br>Excusés:
+    <ion-list>
+      <ion-item *ngFor="let singer of absentTenors">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+    En retard:
+    <ion-list>
+      <ion-item *ngFor="let singer of delayedTenors">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <strong>Basses</strong>
+    <br>Présents: {{ nbOfPresentBasses }}
+    <br>Excusés:
+    <ion-list>
+      <ion-item *ngFor="let singer of absentBasses">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+    En retard:
+    <ion-list>
+      <ion-item *ngFor="let singer of delayedBasses">
+        {{ singer.firstname }} {{ singer. lastname }}
+      </ion-item>
+    </ion-list>
+  </ion-item>
+</ion-content>

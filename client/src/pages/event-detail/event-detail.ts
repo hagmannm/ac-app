@@ -24,10 +24,12 @@ export class EventDetailPage {
 
     private event: Event;
     private user: User;
+    private users: Array<User>;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.event = navParams.get('event');
         this.user = navParams.get('user');
+        this.users = this.navParams.get('users');
     }
 
     ionViewDidLoad() {
