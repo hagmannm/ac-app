@@ -17,64 +17,64 @@
   <h4>Effectif le {{ this.event.date | date: 'EEEE dd.MM.yyyy'}}</h4>
   <ion-item>
     <strong>Soprani</strong>
-    <br>Présentes: {{ nbOfPresentSoprani }}
-    <br>Excusées:
+    <ion-item color="secondary">Présentes: {{ nbOfPresentSoprani }}</ion-item>
+    <br>Excusées: {{ absentSoprani.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of absentSoprani">
+      <ion-item *ngFor="let singer of absentSoprani" color="danger">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
-    En retard:
+    En retard: {{ delayedSoprani.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of delayedSoprani">
+      <ion-item *ngFor="let singer of delayedSoprani" color="light">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
   </ion-item>
   <ion-item>
     <strong>Alti</strong>
-    <br>Présentes: {{ nbOfPresentAlti }}
-    <br>Excusées:
+    <ion-item color="secondary">Présentes: {{ nbOfPresentAlti }}</ion-item>
+    <br>Excusées: {{ absentAlti.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of absentAlti">
+      <ion-item *ngFor="let singer of absentAlti" color="danger">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
-    En retard:
+    En retard: {{ delayedAlti.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of delayedAlti">
+      <ion-item *ngFor="let singer of delayedAlti" color="light">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
   </ion-item>
   <ion-item>
     <strong>Ténors</strong>
-    <br>Présents: {{ nbOfPresentTenors }}
-    <br>Excusés:
+    <ion-item color="secondary">Présents: {{ nbOfPresentTenors }}</ion-item>
+    <br>Excusés: {{ absentTenors.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of absentTenors">
+      <ion-item *ngFor="let singer of absentTenors" color="danger">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
-    En retard:
+    En retard: {{ delayedTenors.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of delayedTenors">
+      <ion-item *ngFor="let singer of delayedTenors" color="light">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
   </ion-item>
   <ion-item>
     <strong>Basses</strong>
-    <br>Présents: {{ nbOfPresentBasses }}
-    <br>Excusés:
+    <ion-item color="secondary">Présents: {{ nbOfPresentBasses }}</ion-item>
+    <br>Excusés: {{ absentBasses.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of absentBasses">
+      <ion-item *ngFor="let singer of absentBasses" color="danger">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>
-    En retard:
+    En retard: {{ delayedBasses.length }}
     <ion-list>
-      <ion-item *ngFor="let singer of delayedBasses">
+      <ion-item *ngFor="let singer of delayedBasses" color="light">
         {{ singer.firstname }} {{ singer. lastname }}
       </ion-item>
     </ion-list>

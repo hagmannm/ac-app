@@ -21,46 +21,101 @@ export class OverviewDetailPage {
   private event: Event;
   private users: Map<string, User>;
 
-  private nbOfPresentSoprani: number;
-  private absentSoprani: Array<User>;
-  private delayedSoprani: Array<User>;
+  private nbOfPresentSoprani: number = 0;
+  private absentSoprani: Array<User> = new Array<User>();
+  private delayedSoprani: Array<User> = new Array<User>();
 
-  private nbOfPresentAlti: number;
-  private absentAlti: Array<User>;
-  private delayedAlti: Array<User>;
+  private nbOfPresentAlti: number = 0;
+  private absentAlti: Array<User> = new Array<User>();
+  private delayedAlti: Array<User> = new Array<User>();
 
-  private nbOfPresentTenors: number;
-  private absentTenors: Array<User>;
-  private delayedTenors: Array<User>;
+  private nbOfPresentTenors: number = 0;
+  private absentTenors: Array<User> = new Array<User>();
+  private delayedTenors: Array<User> = new Array<User>();
 
-  private nbOfPresentBasses: number;
-  private absentBasses: Array<User>;
-  private delayedBasses: Array<User>;
+  private nbOfPresentBasses: number = 0;
+  private absentBasses: Array<User> = new Array<User>();
+  private delayedBasses: Array<User> = new Array<User>();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.event = navParams.get('event');
     this.users = navParams.get('users');
 
-    this.nbOfPresentSoprani = this.getNbOfUsers(ParticipationState.Present, Registry.Soprano);
-    this.absentSoprani = this.getUsers(ParticipationState.Absent, Registry.Soprano);
-    this.delayedSoprani = this.getUsers(ParticipationState.Delayed, Registry.Soprano);
-
-    this.nbOfPresentAlti = this.getNbOfUsers(ParticipationState.Present, Registry.Alto);
-    this.absentAlti = this.getUsers(ParticipationState.Absent, Registry.Alto);
-    this.delayedAlti = this.getUsers(ParticipationState.Delayed, Registry.Alto);
-
-    this.nbOfPresentTenors = this.getNbOfUsers(ParticipationState.Present, Registry.Tenor);
-    this.absentTenors = this.getUsers(ParticipationState.Absent, Registry.Tenor);
-    this.delayedTenors = this.getUsers(ParticipationState.Delayed, Registry.Tenor);
-
-    this.nbOfPresentBasses = this.getNbOfUsers(ParticipationState.Present, Registry.Basso);
-    this.absentBasses = this.getUsers(ParticipationState.Absent, Registry.Basso);
-    this.delayedBasses = this.getUsers(ParticipationState.Delayed, Registry.Basso);
-
+    this.readUsers();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OverviewDetailPage');
+  }
+
+  readUsers() {
+    for (let key of Array.from(this.event.singers.keys())) {
+      switch (this.event.singers.get(key).state) {
+        case ParticipationState.Present: {
+          switch (this.users.get(key).registry) {
+            case Registry.Soprano: {
+              this.nbOfPresentSoprani++;
+              break;
+            }
+            case Registry.Alto: {
+              this.nbOfPresentAlti++;
+              break;
+            }
+            case Registry.Tenor: {
+              this.nbOfPresentTenors++;
+              break;
+            }
+            case Registry.Basso: {
+              this.nbOfPresentBasses++;
+              break;
+            }
+          }
+          break;
+        }
+        case ParticipationState.Absent: {
+          switch (this.users.get(key).registry) {
+            case Registry.Soprano: {
+              this.absentSoprani.push(this.users.get(key));
+              break;
+            }
+            case Registry.Alto: {
+              this.absentAlti.push(this.users.get(key));
+              break;
+            }
+            case Registry.Tenor: {
+              this.absentTenors.push(this.users.get(key));
+              break;
+            }
+            case Registry.Basso: {
+              this.absentBasses.push(this.users.get(key));
+              break;
+            }
+          }
+          break;
+        }
+        case ParticipationState.Delayed: {
+          switch (this.users.get(key).registry) {
+            case Registry.Soprano: {
+              this.delayedSoprani.push(this.users.get(key));
+              break;
+            }
+            case Registry.Alto: {
+              this.delayedAlti.push(this.users.get(key));
+              break;
+            }
+            case Registry.Tenor: {
+              this.delayedTenors.push(this.users.get(key));
+              break;
+            }
+            case Registry.Basso: {
+              this.delayedBasses.push(this.users.get(key));
+              break;
+            }
+          }
+          break;
+        }
+      }
+    }
   }
 
   getNbOfUsers(state: ParticipationState, registry: Registry): number {
