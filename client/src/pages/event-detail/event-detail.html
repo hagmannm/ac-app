@@ -16,13 +16,13 @@
         <br>
         <strong>Participation: </strong> {{ event.singers.get(user.id).state }}<br>
     </ion-item>
-  <button *ngIf="!isAbsent()" ion-item (click)="newAbsence()" color="danger">
+  <button *ngIf="!isAbsent()" ion-item (click)="newAbsence()">
         Annoncer mon absence
     </button>
-  <button *ngIf="!isDelayed()" ion-item (click)="newDelay()" color="light">
+  <button *ngIf="!isDelayed()" ion-item (click)="newDelay()">
         Annoncer mon retard
     </button>
-  <button *ngIf="!isPresent()" ion-item (click)="newPresence()" color="secondary">
+  <button *ngIf="!isPresent()" ion-item (click)="newPresence()">
         Annoncer ma présence
     </button>
     <button ion-item (click)="overviewAllParticipations()">

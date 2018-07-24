@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Event} from "../../app/events/event.model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup} from "@angular/forms";
 import {User} from "../../app/users/user.model";
 import {Participation, ParticipationState} from "../../app/participations/participation.model";
 
