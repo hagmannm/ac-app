@@ -9,7 +9,8 @@ export enum Registry {
   Soprano,
   Alto,
   Tenor,
-  Basso
+  Basso,
+  Choirmaster
 }
 
 export class User {
